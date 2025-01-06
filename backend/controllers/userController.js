@@ -35,7 +35,7 @@ export const register = async (req,res) => {
         })
 
         return res.status(201).json({
-            message : "Accounut created successfully",
+            message : "Account created successfully",
             success : true
         })
 
@@ -108,12 +108,24 @@ export const login = async (req,res) => {
 
 export const logout = (req,res) => {
     try {
-        return res.status(200).cookie("token","",{maxAge : 0}).json({
+        return res
+        .status(200)
+        .clearCookie("token", {
+            httpOnly : true,
+            secure : process.env.NODE_ENV === "production",
+            sameSite : "strict",
+            path : "/"
+        })
+        .json({
             message : "Successfully logged out",
             success : true
         })
     } catch (error) {
         console.log(error);
+        return res.status(500).json({
+            message : "Something went wrong during logout!",
+            success : false
+        })
     }
 }
 
