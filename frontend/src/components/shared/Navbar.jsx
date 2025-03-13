@@ -12,6 +12,7 @@ import { USER_API_END_POINT } from "../../utils/constant";
 import { toast } from "sonner";
 import { setUser } from "@/redux/authslice";
 import axios from "axios";
+import { LogOut, User2 } from "lucide-react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -36,24 +37,25 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
         <div>
           <h1 className="text-2xl font-bold">
             Job <span className="text-[#f83002]">portal</span>
           </h1>
         </div>
-        <div className="flex gap-2 items-center justify-between">
-          <ul className="flex font-medium gap-3">
-            {
-              user && user.role === 'recruiter' ? (
+        <div className="flex gap-12 items-center justify-between">
+          <ul className="flex font-medium gap-5 items-center">
+            { user ? (
+                user.role === 'recruiter' ? (
                 <>
+                <li><Link to="/">Home</Link></li>
                 <li><Link to="/admin/companies">Companies</Link></li>
                 <li><Link to="/admin/Jobs">Jobs</Link></li>
 
                 </>
               ) : (
                 <>
-<Link to={"/home"}>
+<Link to={"/"}>
               <li>Home</li>
             </Link>
             <Link to={"/jobs"}>
@@ -64,6 +66,7 @@ const Navbar = () => {
             </Link>
             </>
               )
+            ) : null
             }
             
             
@@ -99,15 +102,17 @@ const Navbar = () => {
                 <div className="flex flex-col text-gray-600">
                   {user && user.role === "student" && (
                     <div className="flex items-center gap-2 cursor-pointer">
-                      <Link to="/profile">
+                      <User2/>
+                      
                         <Button variant="link">
                           <Link to="/profile">View Profile</Link>
                         </Button>
-                      </Link>
+                      
                     </div>
                   )}
 
                   <div className="flex items-center gap-2 cursor-pointer">
+                    <LogOut/>
                     <Button onClick={logoutHandler} variant="link">
                       Log out
                     </Button>

@@ -62,7 +62,7 @@ export const login = async (req,res) => {
             })
         }
 
-        const passMatch = bcrypt.compare(password,user.password);
+        const passMatch = await bcrypt.compare(password,user.password);
 
         if(!passMatch) {
             return res.status(400).json({
@@ -134,15 +134,16 @@ export const updateProfile = async (req,res) => {
         const {fullName , email , phoneNumber , bio , skills} = req.body;
 
         const userId = req.id;
-        console.log("userid",userId)
+    //    console.log("userid",userId)
         let user = await User.findById(userId);
 
         if(!user) {
             return res.status(400).json({
-                message : "User not found",
+                message : "User not foound",
                 success : false
             })
         }
+            
             if(fullName) user.fullName = fullName;
             if(email) user.email = email;
             if(phoneNumber) user.phoneNumber = phoneNumber;

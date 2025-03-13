@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useDebugValue, useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../shared/Navbar";
+import AdminJobsTable from "./AdminJobsTable";
+import { setSearchJobByText } from "../../redux/jobSlice";
+import { useDispatch } from "react-redux";
+import useGetAllAdminJobs from "../../hooks/useGetAllAdminJobs";
 
 const AdminJobs = () => {
+    useGetAllAdminJobs();
+    const [input,setInput] = useState("");
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setSearchJobByText(input))
+    },[input])
     return(
         <div>
-            <div>
+            <Navbar/>
+            <div className="max-w-6xl mx-auto my-10">
+                <div className="flex items-center justify-between ny-5">
                 <Input
                 className="w-fit"
                 placeholder="Filter by name,role"
@@ -15,6 +29,8 @@ const AdminJobs = () => {
                 />
 
                 <Button onClick={() => navigate("/admin/jobs/create")}>New Jobs</Button>
+                </div>
+                <AdminJobsTable/>
             </div>
         </div>
     )

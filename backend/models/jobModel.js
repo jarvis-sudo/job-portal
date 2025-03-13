@@ -35,7 +35,7 @@ const jobSchema = new mongoose.Schema({
     },
     company : {
         type : mongoose.Schema.Types.ObjectId,
-        ref : 'Comopany',
+        ref : 'Company',
         required : true
     },
     createdBy : {
@@ -43,8 +43,14 @@ const jobSchema = new mongoose.Schema({
         ref : 'User',
         required : true
     },
-    applications : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'Application',
-    }
-})
+    applications : 
+    [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Application',
+        }
+    ]
+  
+},{timestamps:true})
+
+export const Job = mongoose.model("Job" , jobSchema);

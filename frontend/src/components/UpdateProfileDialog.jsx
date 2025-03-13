@@ -16,6 +16,7 @@ import {USER_API_END_POINT} from '../utils/constant'
 import { toast } from "sonner";
 import axios from 'axios';
 import { Loader2 } from "lucide-react";
+import { setUser } from "../redux/authSlice";
 
 
 const UpdateProfileDialog = ({open,setOpen}) => {
@@ -28,6 +29,7 @@ const UpdateProfileDialog = ({open,setOpen}) => {
     console.log(user?.fullName,user?.email,user?.phoneNumber,user?.profile?.bio,user?.profile?.skills)
 
     const [input,setInput] = useState({
+        
         fullName : user?.fullName || "",
         email : user?.email || "",
         phoneNumber : user?.phoneNumber || "",
@@ -52,6 +54,7 @@ const UpdateProfileDialog = ({open,setOpen}) => {
             
             console.log("form submittted data:" , input)
             const formData = new FormData();
+            formData.append("id",input.uid);
             formData.append("fullName",input.fullName);
             formData.append("email",input.email);
             formData.append("phoneNumber",input.phoneNumber);
@@ -74,19 +77,17 @@ const UpdateProfileDialog = ({open,setOpen}) => {
 
                 if(res.data.success){
                    // onUpdateProfile(res.data.user)
-                   console.log("Updated user:", res.data.user);
+                  // console.log("Updated user:", res.data.user);
                     dispatch(setUser(res.data.user))
                     toast.success(res.data.message)
-                    setOpen(false);
+                    
 
                 }
-                else{
-                    toast.error(res.data.message || "update failed")
-                }
+    
 
             } catch (error) {
-                console.log(error)
-                toast.error(error.response.data.message)
+                console.error(error)
+                toast.error(error?.response?.data?.message)
             }
             finally{
                 setLoading(false);
@@ -105,63 +106,63 @@ const UpdateProfileDialog = ({open,setOpen}) => {
                     </DialogHeader>
 
                     <form onSubmit={submitHandler}>
-                        <div>
-                            <div>
-                                <Label>Name</Label>
+                        <div className="grid gap-4 py-4">
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="name" className="text-right">Name</Label>
                                 <Input
                                 id = "fullName"
                                 name = "fullName"
                                 type = "text"
                                 value = {input.fullName}
                                 onChange = {changeEventHandler}
-                                className =""
+                                className ="col-span-3"
                                 />
                             </div>
-                            <div>
-                                <Label>Email</Label>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="email" className="text-right">Email</Label>
                                 <Input
                                 id = "email"
                                 name = "email"
                                 type = "email"
                                 value = {input.email}
                                 onChange = {changeEventHandler}
-                                className =""
+                                className ="col-span-3"
                                 />
                             </div>
-                            <div>
-                                <Label>Number</Label>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="number" className="text-right">Number</Label>
                                 <Input
                                 id = "phoneNumber"
                                 name = "phoneNumber"
                                 type = "text"
                                 value = {input.phoneNumber}
                                 onChange = {changeEventHandler}
-                                className =""
+                                className ="col-span-3"
                                 />
                             </div>
-                            <div>
-                                <Label>Bio</Label>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="bio" className="text-right">Bio</Label>
                                 <Input
                                 id = "bio"
                                 name = "bio"
                                 
                                 value = {input.bio}
                                 onChange = {changeEventHandler}
-                                className =""
+                                className ="cols-span-3"
                                 />
                             </div>
-                            <div>
-                                <Label>Skills</Label>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label className="text-right">Skills</Label>
                                 <Input
                                 id = "skills"
                                 name = "skills"
                         
                                 value = {input.skills}
                                 onChange = {changeEventHandler}
-                                className =""
+                                className ="cols-span-3"
                                 />
                             </div>
-                            <div>
+                            <div className="grid grid-cols-4 items-center gap-4">
                                 <Label>Resume</Label>
                                 <Input
                                 id = "resume"
@@ -170,7 +171,7 @@ const UpdateProfileDialog = ({open,setOpen}) => {
                                 accept = "application/pdf"
                                 
                                 onChange = {fileChangeHandler}
-                                className =""
+                                className ="cols-span-3"
                                 />
                             </div>
                         </div>

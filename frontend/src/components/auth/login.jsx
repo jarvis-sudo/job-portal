@@ -19,7 +19,7 @@ const login = () => {
         role : "",
         
       })
-
+      //const[loading,setLoading] = useState(false);
       const {user} = useSelector(store => store.auth)
       const navigate = useNavigate();
       const dispatch = useDispatch();
@@ -30,9 +30,10 @@ const login = () => {
       }
     const submitHandler = async (e) => {
         e.preventDefault();
-        console.log(input);
+      //  console.log(input);
 
         try {
+          dispatch(setLoading(true));
           const res = await axios.post(`${USER_API_END_POINT}/login`, input , {
             headers : {
               "Content-Type" : "application/json"
@@ -51,6 +52,9 @@ const login = () => {
         } catch (error) {
           console.log(error)
           toast.error(error.response.data.message)
+        }
+        finally{
+          dispatch(setLoading(false));
         }
 
       }

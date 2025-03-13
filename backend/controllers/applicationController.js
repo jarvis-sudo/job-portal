@@ -1,6 +1,5 @@
-import { compareSync } from "bcryptjs";
-import e from "cors";
-import { application } from "express";
+import { Application} from "../models/applicationModel.js";
+
 
 
 export const applyJob = async (req,res) => {
@@ -16,7 +15,7 @@ export const applyJob = async (req,res) => {
         }
         //if user already applied for the job
 
-        const existingApplication = await application.findOne({job : jobId,applicant :userId});
+        const existingApplication = await Application.findOne({job : jobId,applicant :userId});
 
         if(existingApplication){
             return res.status(400).josn({
