@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import Navbar from './components/shared/Navbar';
+//import Navbar from './components/shared/Navbar';
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
 import Jobs from './components/Jobs';
