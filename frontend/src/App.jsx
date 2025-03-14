@@ -3,13 +3,13 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Navbar from './components/shared/Navbar';
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
-import Home from './components/home';
+import Home from './components/Home';
 import Jobs from './components/Jobs';
 import Browse from './components/Browse';
 import Profile from './components/Profile';
 import Companies from './components/admin/Companies';
-import CompanyCreate from './components/admin/companyCreate';
-import CompanySetup from './components/admin/companySetup';
+import CompanyCreate from './components/admin/CompanyCreate';
+import CompanySetup from './components/admin/CompanySetup';
 import ProtectedRoute from './components/admin/ProtectedRoute';
 import AdminJobs from './components/admin/AdminJobs';
 import PostJob from './components/admin/PostJob'

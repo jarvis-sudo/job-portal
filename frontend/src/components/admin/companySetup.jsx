@@ -10,8 +10,8 @@ import Navbar from "../shared/Navbar"
 import { Button } from "../ui/button";
 import { useSelector } from "react-redux";
 import { Loader, Loader2 } from 'lucide-react';
-import dotenv from "dotenv";
-dotenv.config();
+
+
 
 const CompanySetup = () => {
   const params = useParams();
@@ -46,7 +46,7 @@ const CompanySetup = () => {
 
     e.preventDefault();
     console.log("clicked!!!")
-    console.log(process.env.CLOUD_NAME);
+
     console.log(input);
     const formData = new FormData();
     formData.append("companyname", input.name);

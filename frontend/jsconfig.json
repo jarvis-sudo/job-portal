@@ -3,7 +3,7 @@
     "references": [
       {
         "path": "./jsconfig.app.json"
-      },
+      }
     /*  {
         "path": "./tsconfig.node.json"
       } */
@@ -12,7 +12,8 @@
       "baseUrl": ".",
       "paths": {
         "@/*": ["./src/*"]
-      }
+      },
+      "jsx" : "react-jsx"
     }
   }
   
