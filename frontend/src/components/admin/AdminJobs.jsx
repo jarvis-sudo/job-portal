@@ -25,7 +25,7 @@ const AdminJobs = () => {
                 <Input
                 className="w-fit"
                 placeholder="Filter by name,role"
-                oonChange={(e) => setInput(e.target.value)}
+                onChange={(e) => setInput(e.target.value)}
                 />
 
                 <Button onClick={() => navigate("/admin/jobs/create")}>New Jobs</Button>

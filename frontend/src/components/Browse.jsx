@@ -15,7 +15,7 @@ const Browse = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(allJobs.length)
+       // console.log(allJobs.length)
         return () => {
             dispatch(setSearchedQuery(""));
         }

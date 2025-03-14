@@ -51,11 +51,12 @@ useEffect(() => {
             <Table>
                 <TableCaption>A list of your recent registered companies</TableCaption>
                 <TableHeader>
+                    <TableRow>
                     <TableHead>Logo</TableHead>
                     <TableHead>Name</TableHead>
                     <TableHead>Date</TableHead>
                     <TableHead>Action</TableHead>
-
+                    </TableRow>
                 </TableHeader>
                 <TableBody>
                 

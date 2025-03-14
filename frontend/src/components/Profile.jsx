@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button"
 import {Pen,Mail,Contact, Badge} from "lucide-react"
-import AppliedJobTable from "./AppliedJobTable.jsx";
+import AppliedJobTable from "./AppliedJobTable";
 import Navbar from "./shared/Navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import UpdateProfileDialog from "./UpdateProfileDialog.jsx";
