@@ -16,11 +16,20 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
  app.use(cookieParser());
+
+ const allowedOrigins = [
+    "http://localhost:5173",
+  "https://frontend-pi-jet-24.vercel.app",  
+ ]
 const corsOptions = {
-    origin : "https://frontend-pi-jet-24.vercel.app",
-    credentials:true
-}
-app.use(cors(corsOptions))
+    origin : allowedOrigins,
+    credentials:true,
+    methods: ["GET","POST","PUT","DELETE","PATCH"],
+    allowedHeaders : ["Content-Type","Authorization"],
+ }
+app.use(cors(corsOptions));
+
+app.options("*",cors());
 
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company" , companyRoute);
