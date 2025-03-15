@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
  app.use(cookieParser());
 const corsOptions = {
-    origin : "https://vercel.com/jarvis-sudos-projects/backend/5MqQkdyiGWHXVVzfHuLsBiGrBHzE",
+    origin : "https://frontend-pi-jet-24.vercel.app/",
     credentials:true
 }
 app.use(cors(corsOptions))
