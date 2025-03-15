@@ -10,9 +10,9 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { USER_API_END_POINT } from "../../utils/constant";
 import { toast } from "sonner";
-import { setUser } from "@/redux/authslice";
 import axios from "axios";
 import { LogOut, User2 } from "lucide-react";
+import { setUser } from "../../redux/authSlice";
 
 const Navbar = () => {
   const navigate = useNavigate();
