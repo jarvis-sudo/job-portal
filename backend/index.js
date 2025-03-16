@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended:true}));
   "https://frontend-pi-jet-24.vercel.app",  
  ]
 const corsOptions = {
-    origin:"http://localhost:5173",
+    origin:allowedOrigins,
     credentials:true,
     methods: ["GET","POST","PUT","DELETE","PATCH"],
     allowedHeaders : ["Content-Type","Authorization"],
@@ -30,6 +30,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 //app.options("*",cors());
+
+app.get("/", (req,res) => {
+    res.send("Job Portal API is running!")
+})
 
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company" , companyRoute);
@@ -43,3 +47,5 @@ app.listen(PORT,() => {
     console.log(`Server is running at port : ${PORT}`)
     
 })
+
+export default app;
