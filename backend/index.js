@@ -22,14 +22,14 @@ app.use(express.urlencoded({extended:true}));
   "https://frontend-pi-jet-24.vercel.app",  
  ]
 const corsOptions = {
-    origin : allowedOrigins,
+    origin:"http://localhost:5173",
     credentials:true,
     methods: ["GET","POST","PUT","DELETE","PATCH"],
     allowedHeaders : ["Content-Type","Authorization"],
  }
 app.use(cors(corsOptions));
 
-app.options("*",cors());
+//app.options("*",cors());
 
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company" , companyRoute);

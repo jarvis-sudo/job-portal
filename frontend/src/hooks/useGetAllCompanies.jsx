@@ -11,8 +11,9 @@ const useGetAllCompanies = () => {
     useEffect(() => {
         const fetchCompanies = async () => {
             try {
+                console.log("companyapi",COMPANY_API_END_POINT)
                 const res = await axios.get(`${COMPANY_API_END_POINT}/get`,{withCredentials:true});
-                console.log('called');
+                console.log("res",res);
                 if(res.data.success){
                     dispatch(setCompanies(res.data.companies))
                 }
