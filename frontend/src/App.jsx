@@ -4,7 +4,6 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
 import Jobs from './components/Jobs';
-import Home  from "./components/Home";
 import Browse from './components/Browse';
 import Profile from './components/Profile';
 import Companies from './components/admin/Companies';
@@ -15,6 +14,7 @@ import AdminJobs from './components/admin/AdminJobs';
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants';
 import JobDescription from './components/JobDescription';
+import Home from './components/Home';
 
 const appRouter = createBrowserRouter([
   {

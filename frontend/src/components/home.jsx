@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import store from "../redux/store";
 import { useNavigate } from "react-router-dom";
 
-const home = () => {
+const Home = () => {
     useGetAllJobs();
     const {user} = useSelector(store => store.auth);
     const navigate = useNavigate();
@@ -30,4 +30,4 @@ const home = () => {
    </div>
     )}
 
-export default home;
+export default Home;
