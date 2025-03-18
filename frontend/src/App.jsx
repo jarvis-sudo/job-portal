@@ -2,7 +2,6 @@ import { useState } from 'react';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 //import Navbar from './components/shared/Navbar';
 
-import CompanyCreate from './components/admin/CompanyCreate';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/login';
 import Jobs from './components/Jobs';
@@ -16,6 +15,7 @@ import PostJob from './components/admin/PostJob';
 import Applicants from './components/admin/Applicants';
 import ProtectedRoute from './components/admin/ProtectedRoute';
 import Home from './components/Home';
+import CompanyCreate from './components/admin/CompanyCreate';
 
 const appRouter = createBrowserRouter([
   {
