@@ -12,10 +12,10 @@ import AdminJobs from './components/admin/AdminJobs';
 import PostJob from './components/admin/PostJob';
 import Applicants from './components/admin/Applicants';
 import ProtectedRoute from './components/admin/ProtectedRoute';
-import Home from './components/Home';
 import CompanyCreate from './components/admin/CompanyCreate';
 import Signup from './components/auth/Signup';
 import CompanySetup from './components/admin/CompanySetup';
+import Home from './components/Home';
 
 const appRouter = createBrowserRouter([
   {
