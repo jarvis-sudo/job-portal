@@ -10,7 +10,7 @@ import { USER_API_END_POINT } from "../../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading,setUser } from "../../redux/authSlice";
 
-const login = () => {
+const Login = () => {
     const [input,setInput] = useState({
     
         email : "",
@@ -112,4 +112,4 @@ const login = () => {
     )
 }
 
-export default login;
+export default Login;

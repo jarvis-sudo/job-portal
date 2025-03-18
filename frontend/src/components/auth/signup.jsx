@@ -11,7 +11,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { USER_API_END_POINT } from "../../utils/constant";
 import { toast } from "sonner";
 
-const signup = () => {
+const Signup = () => {
   const [input, setInput] = useState({
     fullName: "",
     email: "",
@@ -183,4 +183,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default Signup;
