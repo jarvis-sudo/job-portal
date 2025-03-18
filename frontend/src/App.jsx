@@ -7,7 +7,6 @@ import Jobs from './components/Jobs';
 import Browse from './components/Browse';
 import Profile from './components/Profile';
 import Companies from './components/admin/Companies';
-import CompanyCreate from './components/admin/CompanyCreate';
 import CompanySetup from './components/admin/CompanySetup';
 import ProtectedRoute from './components/admin/ProtectedRoute';
 import AdminJobs from './components/admin/AdminJobs';
@@ -15,6 +14,7 @@ import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants';
 import JobDescription from './components/JobDescription';
 import Home from './components/Home';
+import CompanyCreate from './components/admin/CompanyCreate';
 
 const appRouter = createBrowserRouter([
   {
