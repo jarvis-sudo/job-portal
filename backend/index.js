@@ -20,14 +20,23 @@ app.use(express.urlencoded({extended:true}));
  const allowedOrigins = [
     "http://localhost:5173",
   "https://frontend-pi-jet-24.vercel.app",  
- ]
+ ] 
 const corsOptions = {
-    origin:allowedOrigins,
+    origin: function (origin,callBack) {
+        if(!origin || allowedOrigins.includes(origin)) {
+            callBack(null,true);
+        }
+        else{
+            callBack(new Error("Not allowed by CORS"));
+        }
+    }, 
     credentials:true,
     methods: ["GET","POST","PUT","DELETE","PATCH"],
     allowedHeaders : ["Content-Type","Authorization"],
  }
 app.use(cors(corsOptions));
+
+  app.options("*", cors(corsOptions));  // Allow preflight requests
 
 //app.options("*",cors());
 
