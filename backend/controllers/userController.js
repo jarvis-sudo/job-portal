@@ -102,7 +102,11 @@ export const login = async (req,res) => {
         })
 
     } catch (error) {
-        console.log(error);
+        console.log('error in regidter:',error);
+        return res.status(500).json({
+            message:"Internal server error",
+            success : false
+        })
     }
 }
 
