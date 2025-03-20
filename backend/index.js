@@ -1,3 +1,4 @@
+
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -22,14 +23,7 @@ app.use(express.urlencoded({extended:true}));
   "https://frontend-pi-jet-24.vercel.app",  
  ] 
 const corsOptions = {
-    origin: function (origin,callBack) {
-        if(!origin || allowedOrigins.includes(origin)) {
-            callBack(null,true);
-        }
-        else{
-            callBack(new Error("Not allowed by CORS"));
-        }
-    }, 
+    origin: "*",
     credentials:true,
     methods: ["GET","POST","PUT","DELETE","PATCH"],
     allowedHeaders : ["Content-Type","Authorization"],
@@ -43,6 +37,9 @@ app.use(cors(corsOptions));
 app.get("/", (req,res) => {
     res.send("Job Portal API is running!")
 })
+
+
+  
 
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company" , companyRoute);

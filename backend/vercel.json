@@ -6,6 +6,11 @@
             "use" : "@vercel/node"
         }
     ],
+    "functions": {
+    "api/v1/user/login": {
+      "maxDuration": 30
+    }
+  },
     "routes" : [
         {
             "src" : "/(.*)",
