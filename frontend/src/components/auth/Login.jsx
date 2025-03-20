@@ -34,7 +34,7 @@ const Login = () => {
 
         try {
           dispatch(setLoading(true));
-          const res = await axios.post(`${USER_API_END_POINT}/login`, input , {
+          const res = await axios.post("https://backend-gamma-ecru-68.vercel.app/api/v1/user/login", input , {
             headers : {
               "Content-Type" : "application/json"
             },
