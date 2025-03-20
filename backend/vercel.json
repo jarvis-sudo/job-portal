@@ -6,11 +6,7 @@
         "use": "@vercel/node"
       }
     ],
-    "functions": {
-      "api/v1/user/login": {
-        "maxDuration": 30
-      }
-    },
+
     "headers": [
       {
         "source": "/api/(.*)",
@@ -21,22 +17,6 @@
           { "key": "Access-Control-Allow-Credentials", "value": "true" }
         ]
       }
-    ],
-    "routes": [
-      {
-        "src": "/api/v1/user/login",
-        "methods": ["OPTIONS"],
-        "dest": "/api/v1/user/login",
-        "headers": {
-          "Access-Control-Allow-Origin": "https://frontend-pi-jet-24.vercel.app",
-          "Access-Control-Allow-Methods": "POST,OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization"
-        }
-      },
-      {
-        "src": "/(.*)",
-        "dest": "index.js",
-        "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
-      }
     ]
+    
   }
