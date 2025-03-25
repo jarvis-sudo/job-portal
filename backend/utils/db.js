@@ -10,6 +10,7 @@ const connectDB = async () => {
             socketTimeoutMS: 45000, // Keep sockets open for 45s
         });
         console.log("mongodb connected successfully")
+        console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
         console.error("Error , connecting to mongo db!",error.message);
         process.exit(1);
