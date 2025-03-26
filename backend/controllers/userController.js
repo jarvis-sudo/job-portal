@@ -2,6 +2,7 @@
 import { User } from "../models/userModel.js"
 import bcrypt from "bcryptjs";
 import  JsonWebToken  from "jsonwebtoken";
+import { trusted } from "mongoose";
 
 
 export const register = async (req,res) => {
@@ -96,7 +97,7 @@ export const login = async (req,res) => {
             profile : user.profile
         }
 
-        return res.status(200).cookie("token",token, {maxAge : 1*24*60*60*1000, httpsOnly : true, sameSite : 'strict' }).json({
+        return res.status(200).cookie("token",token, {maxAge : 1*24*60*60*1000, httpOnly : true,secure:true, sameSite : 'None' }).json({
             message : `welcome back ${user.fullName}`,
             user,
             success : true

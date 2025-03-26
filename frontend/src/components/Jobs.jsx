@@ -30,11 +30,11 @@ const Jobs = () => {
       <Navbar />
       <div className="max-w-7xl mx-auto mt-5">
         <div className="flex gap-5">
-          <div className="w-20%">
+          <div className="w-1/5">
             <FilterCard />
           </div>
           {filterJobs.length <= 0 ? (
-            <span>Job Not fooound</span>
+            <span>Job Not foound</span>
           ) : (
             <div className="flex-1 h-[88vh] overflow-y-auto pb-5">
               <div className="grid grid-cols-3 gap-4">
