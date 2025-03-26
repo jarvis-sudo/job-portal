@@ -10,7 +10,7 @@ export const postJob = async (req,res) => {
         console.log(req.body);
         if(!title || !description || !requirements || !salary || !location || !jobType || !experience || !position || !companyId){
             return res.status(400).json({
-                message : "Something is mssin",
+                message : "Something is missing",
                 success : false
             })
         }
@@ -83,7 +83,7 @@ export const getJobById = async (req,res) => {
 
         if(!job){
             return res.status(404).json({
-                message : "jobs not found",
+                message : "Jobs not found",
                 success : false
             })
 
@@ -109,7 +109,7 @@ export const getAdminJobs = async (req,res) => {
         });
         if(!jobs) {
             return res.status(404).json({
-                message: "jobs not found",
+                message: "Jobs not found",
                 success : false
             })
         };
